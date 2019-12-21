@@ -28,6 +28,9 @@ public class LoginPageSteps {
         open(loginPage.getLoginPageUrl());
         CucumberScreenshoter.embedScreenshot(scenario, WebDriverRunner.getWebDriver());
         scenario.write("Test");
+        String html = "<html><body><h1>To jest Test HTML</h1><p>aaa</p></body></html>";
+        byte[] htmlBytes = html.getBytes();
+        scenario.embed(htmlBytes, "text/html");
     }
 
     @When("User gives proper credentials to Admin account")

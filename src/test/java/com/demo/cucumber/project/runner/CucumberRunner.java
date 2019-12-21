@@ -10,6 +10,6 @@ import org.junit.runner.RunWith;
 @CucumberOptions(features = {"src/test/resources/features/"},
         glue = "com.demo.cucumber.project.steps",
         monochrome = true,
-        plugin = {"pretty", "io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm"})
+        plugin = {"pretty", "json:target/cucumber.json", "io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm"})
 public class CucumberRunner extends AbstractTestNGCucumberTests {
 }

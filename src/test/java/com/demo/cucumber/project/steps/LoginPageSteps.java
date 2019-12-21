@@ -13,7 +13,7 @@ public class LoginPageSteps {
     private LoginPage loginPage = new LoginPage();
     private String adminLogin, adminPassword;
 
-    @Before
+   @Before
     public void getLoginAndPassword() {
         adminLogin = PropertyFileReader.getProperty("setup.properties", "adminLogin");
         adminPassword = PropertyFileReader.getProperty("setup.properties", "adminPassword");

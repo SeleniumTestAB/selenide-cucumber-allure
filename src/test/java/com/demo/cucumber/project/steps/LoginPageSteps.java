@@ -1,7 +1,9 @@
 package com.demo.cucumber.project.steps;
 
+import com.codeborne.selenide.WebDriverRunner;
 import com.demo.cucumber.project.config.PropertyFileReader;
 import com.demo.cucumber.project.pages.LoginPage;
+import com.demo.cucumber.project.utils.CucumberScreenshoter;
 import io.cucumber.core.api.Scenario;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -9,7 +11,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.screenshot;
 
 public class LoginPageSteps {
     private LoginPage loginPage = new LoginPage();
@@ -25,7 +26,8 @@ public class LoginPageSteps {
     @Given("User is on Login Page")
     public void user_is_on_Login_Page() {
         open(loginPage.getLoginPageUrl());
-        scenario.embed(screenshot("loginPage").getBytes(), "image/png");
+        CucumberScreenshoter.embedScreenshot(scenario, WebDriverRunner.getWebDriver());
+        scenario.write("Test");
     }
 
     @When("User gives proper credentials to Admin account")
